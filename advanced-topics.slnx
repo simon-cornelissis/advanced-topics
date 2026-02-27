@@ -1,3 +1,4 @@
 <Solution>
   <Project Path="advanced-topics/advanced-topics.csproj" />
+  <Project Path="ClassLibrary/ClassLibrary.csproj" Id="0452a7a6-97cc-4368-8226-0774d24f60de" />
 </Solution>

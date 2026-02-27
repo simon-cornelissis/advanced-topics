@@ -1,34 +1,44 @@
-﻿static IEnumerable<int> Fibonacci(int number) 
-{
-    int a = 0, b = 1;
-    yield return a;
-    yield return b;
-    for (int i = 2; i <= number; i++)
-    {
-        int next = a + b;
-        yield return next;
+﻿using ClassLibrary;
+using System.Text.RegularExpressions;
 
-        a = b;
-        b = next;
+class Program
+{
+    static void Main(string[] args)
+    {
+        Institute Howest = new Institute()
+        {
+            Groups = new List<ClassLibrary.Group>() {
+                    new ClassLibrary.Group() {
+                        Name = "2TI",
+                        Students = new List<Student>()
+                        {
+                            new Student(lastName:"Hoet", firstName:"Jan", Id:323, trajectory:"SE"),
+                            new Student(lastName:"Vandenberghe", firstName:"Jordy", Id:966, trajectory:"CCCP")
+                        },
+                        Teacher = new Teacher(lastName:"Gobbelijn", firstName:"Professor", Id:14323456)
+                    },
+                    new ClassLibrary.Group() {
+                        Name = "3TI",
+                        Students = new List<Student>()
+                        {
+                            new Student(lastName:"Gillez", firstName:"Amedee", Id:545, trajectory:"SE"),
+                        },
+                        Teacher= new Teacher(lastName:"Roels", firstName:"Kristien", Id:27645387)
+                    }
+                }
+        };
+
+        Console.WriteLine(Howest.Groups[0].ToString());
+
+        foreach (ClassLibrary.Group group in Howest.Groups) 
+        {
+
+            if (group.Teacher is { typeof(Person), }) 
+            {
+            }
+
+
+
+        }
     }
 }
-
-Fibonacci(10)
-        .ToList()
-        .ForEach(number => Console.WriteLine(number));
-
-static string Reverse(string text)
-{
-    if (string.IsNullOrEmpty(text))
-        return text;
-    return text[^1] + Reverse(text[..^1]);
-}
-
-Console.WriteLine("Please enter a text: ");
-string myText = Console.ReadLine().Trim().ToLower();
-
-string myReversedText = Reverse(myText);
-
-Console.WriteLine(myReversedText);
-	
-Console.WriteLine($"The text {myText} is { (myText == myReversedText ? "a" : "not a")} palindrome"); 
