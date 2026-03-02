@@ -5,40 +5,29 @@ class Program
 {
     static void Main(string[] args)
     {
-        Institute Howest = new Institute()
-        {
-            Groups = new List<ClassLibrary.Group>() {
-                    new ClassLibrary.Group() {
-                        Name = "2TI",
-                        Students = new List<Student>()
-                        {
-                            new Student(lastName:"Hoet", firstName:"Jan", Id:323, trajectory:"SE"),
-                            new Student(lastName:"Vandenberghe", firstName:"Jordy", Id:966, trajectory:"CCCP")
-                        },
-                        Teacher = new Teacher(lastName:"Gobbelijn", firstName:"Professor", Id:14323456)
-                    },
-                    new ClassLibrary.Group() {
-                        Name = "3TI",
-                        Students = new List<Student>()
-                        {
-                            new Student(lastName:"Gillez", firstName:"Amedee", Id:545, trajectory:"SE"),
-                        },
-                        Teacher= new Teacher(lastName:"Roels", firstName:"Kristien", Id:27645387)
-                    }
-                }
-        };
+        List<string> fruits = new List<string>();
+        fruits.Add("banana");
+        fruits.Add("apple");
+        fruits.Add("kiwi");
 
-        Console.WriteLine(Howest.Groups[0].ToString());
+        Func<string, string>
+            capitalize = s => s.ToUpper();
 
-        foreach (ClassLibrary.Group group in Howest.Groups) 
-        {
+        Console.WriteLine(capitalize(fruits[0]));
 
-            if (group.Teacher is { typeof(Person), }) 
+        Func<string, int>
+            counter = s => s.Length;
+
+        Func<string, string, bool>
+            compared = (s, c) => s.Length == c.Length || s.Equals(c);
+
+        Func<string, string>
+            alphabetically = s => 
             {
-            }
+                char[] chars = s.ToCharArray();
+                Array.Sort(chars);
 
+            };
 
-
-        }
     }
 }
