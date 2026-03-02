@@ -29,9 +29,14 @@ class Program
                 return new string(chars);
             };
 
-        //Ex 6
+        //Ex 7
+
+        Func<Student, int, bool>
+            checkAge = (s, n) =>
+            {
 
 
+            };
 
     }
 }
