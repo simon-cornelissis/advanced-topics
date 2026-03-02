@@ -26,7 +26,7 @@ class Program
             {
                 char[] chars = s.ToCharArray();
                 Array.Sort(chars);
-
+                return new string(chars);
             };
 
     }
