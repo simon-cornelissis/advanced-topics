@@ -29,5 +29,9 @@ class Program
                 return new string(chars);
             };
 
+        //Ex 6
+
+
+
     }
 }
